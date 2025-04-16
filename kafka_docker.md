@@ -8,9 +8,6 @@ This guide helps you set up a local Kafka instance using Docker, produce a messa
 
 1. [🧰 Prerequisites](#-prerequisites)
 2. [🐳 Step 1: Setup Kafka with Docker](#-step-1-setup-kafka-with-docker)
-3. [🐍 Step 2: Post a Message using Python](#-step-2-post-a-message-using-python)
-4. [📥 Step 3: Consume and Write to DB/S3](#-step-3-consume-and-write-to-dbs3)
-5. [📌 Notes & Troubleshooting](#-notes--troubleshooting)
 
 ---
 
