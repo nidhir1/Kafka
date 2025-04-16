@@ -9,9 +9,24 @@
 * Run consumer script to receive them
 
 ## Post a Kafka Message Using Python
-
-## Consume a kafka message and write to db/S3
-# Step 1: Install Kafka Python client
+ ### Step 1: Install Kafka Python client
 * pip install kafka-python
+ ### Step 2: Python code to send a message
+ from kafka import KafkaProducer
+
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
+
+topic = 'test-topic'
+message = 'Hello, Kafka!'
+
+producer.send(topic, message.encode('utf-8'))
+producer.flush()
+
+print("Message sent!")
+
+
+  
+## Consume a kafka message and write to db/S3
+
 
   
