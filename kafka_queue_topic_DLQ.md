@@ -126,3 +126,56 @@ e.g., Logging services consuming logs in parallel to avoid bottlenecks.
 
 * Benefits: Near real-time recommendations or anomaly detection.
 
+# Dead Letter Queue (DLQ)
+* A DLQ is a separate Kafka topic used to capture messages that fail processing.
+
+* When a consumer can’t process a message after retries, it can push that message to a DLQ.
+
+* Helps with debugging, error recovery, and avoiding reprocessing failures in real time.
+
+* DLQ Topic Naming Convention: original-topic-name.DLQ
+# Use cases
+ 1. Payment Processing Failures
+* Scenario: A Kafka consumer processes payment confirmations, but some records fail (e.g., due to malformed JSON or DB timeout).
+* Main Topic: payment-confirmation
+
+* DLQ: payment-confirmation.DLQ
+
+* Use: Failed messages go to DLQ for later inspection and reprocessing.
+
+* Prevents broken records from blocking your pipeline and allows safe retries.
+
+2. Order Events with Missing Data
+* Scenario: An order processing service consumes from order-created, but some messages are missing required fields like order_id.
+
+* DLQ: Capture and store those invalid events.
+
+* Later: Analysts or developers can review them, correct, and replay into the main topic if needed.
+
+*  Avoids crashes due to bad data, helps fix upstream data issues.
+
+3. Real-Time Analytics with Malformed Events
+# Scenario: A stream of analytics events is ingested, but occasionally receives corrupted or partial messages.
+
+* Main Topic: user-events
+
+* DLQ: user-events.DLQ
+
+* Use: Save problematic events for later debugging without losing real-time processing speed.
+
+* Keeps the pipeline healthy while handling edge cases gracefully.
+
+4. Live Location Tracking Errors
+* Scenario: Kafka receives live GPS updates, but some messages fail due to:
+
+* Invalid coordinates
+
+* Missing delivery partner ID
+
+* Expired timestamps
+
+* Main Topic: location-updates
+
+* DLQ: location-updates.DLQ
+
+* Inspect and fix faulty updates instead of discarding them or blocking the consumer.
