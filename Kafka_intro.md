@@ -60,25 +60,24 @@ So, topics are stored and managed by Brokers, and the actual data is split acros
 
 ![image](https://github.com/user-attachments/assets/d85ae14f-3ffa-480c-9271-4ee1d2d120d5)
 
-✅ What is a Data Pipeline?
-A data pipeline is a series of steps where data is collected, processed, and moved from one system to another. For example:
+# What is a Data Pipeline?
+* A data pipeline is a series of steps where data is collected, processed, and moved from one system to another. For example:
 
-Collect logs from a web server.
+* Collect logs from a web server.
 
-Stream/process those logs to clean/transform the data.
+* Stream/process those logs to clean/transform the data.
 
-Store the final data into a database or data lake.
+* Store the final data into a database or data lake.
 
 🧩 How Kafka Fits Into a Pipeline:
 Kafka often acts as the backbone of modern data pipelines. Here’s a typical flow:
 
-css
-Copy
-Edit
+
 [App / Device / Service] 
       ↓
   Kafka Producer → [Kafka Topic] → Kafka Consumer → [Processing Engine / DB / Data Lake]
-📦 Example Use Case:
+  
+Example Use Case:
 Let’s say you have a POS system and you want to build a real-time dashboard:
 
 Each sale is published to a Kafka topic (producer).
@@ -89,11 +88,3 @@ The events are processed (e.g., add tax, analyze trends).
 
 Final results are stored in a database or pushed to a dashboard.
 
-⚡ Tech Often Used Alongside Kafka in Pipelines:
-Kafka Connect – Move data between Kafka and databases, file systems, etc.
-
-Kafka Streams – Process Kafka events in real-time.
-
-Apache Flink / Spark Streaming – Advanced stream processing.
-
-Airflow / Prefect – For batch pipeline orchestration.
