@@ -129,7 +129,8 @@ Kafka plays well with others: it integrates with Spark, Flink, Hadoop, Elasticse
 | **Message Handling** | Persistent logs (can replay messages)                                   | Stateless; no built-in message persistence                  |
 | **Performance**    | High throughput, low latency                                              | Lower throughput, higher latency                            |
 | **Scalability**    | Easily scalable for high volume                                           | Can become a bottleneck under high load                     |
+| **Ordering**       | Guarantees message order (within partitions)                              | No built-in ordering guarantees                             |
+| **Reliability**    | High fault-tolerance and durability                                       | Depends on implementation                                   |
 | **Use Case**       | Real-time data pipelines, event sourcing,microservice communication       | CRUD operations, external integrations,traditional client-server communication|                                         
                                                                         
-| **Ordering**       | Guarantees message order (within partitions)                              | No built-in ordering guarantees                             |
-| **Reliability**    | High fault-tolerance and durability                                       | Depends on implementation (often
+
