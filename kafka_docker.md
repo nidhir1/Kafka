@@ -56,3 +56,14 @@ docker exec -it your_kafka_container_name kafka-topics \
   --partitions 1 \
   --replication-factor 1
 
+## Interact with Kafka
+### Exec into the Kafka container:
+
+* docker exec -it kafka bash
+
+## Create a topic:
+* kafka-topics --create --topic test-topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+## List topics:
+
+*kafka-topics --list --bootstrap-server localhost:9092
