@@ -33,8 +33,32 @@ Apache Kafka is a distributed event streaming platform. Think of it like a messa
 ##Kafka Architecture Flowchart
 ![image](https://github.com/user-attachments/assets/554bb1b5-2a8d-4d6d-9491-d1e1b9b09a06)
 
+A Topic is not a separate entity from a Broker.
+
+It is a logical concept that lives inside Kafka Brokers.
+
+Physically, a Topic is stored as partitions across one or more Brokers.
+
+What happens technically:
+When you create a topic, Kafka assigns its partitions across multiple Brokers.
+
+Each partition is a commit log stored on disk by a Broker.
+
+One Broker will be the leader for a given partition, and others may be followers for replication.
+
+Example:
+You have 3 Brokers: B1, B2, B3.
+
+You create a Topic "orders" with 3 partitions.
+
+Partition 0 could be on B1, Partition 1 on B2, Partition 2 on B3.
+
+So, topics are stored and managed by Brokers, and the actual data is split across partitions that physically live on the Brokers' storage.
+
+![image](https://github.com/user-attachments/assets/a25eb0d5-858e-4178-b564-eeb570aebf63)
 
 
+![image](https://github.com/user-attachments/assets/d85ae14f-3ffa-480c-9271-4ee1d2d120d5)
 
 ✅ What is a Data Pipeline?
 A data pipeline is a series of steps where data is collected, processed, and moved from one system to another. For example:
