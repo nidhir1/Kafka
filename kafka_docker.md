@@ -1,8 +1,5 @@
-# Kafka Docker + Python Producer/Consumer Guide
+# Kafka Docker 
 
-This guide helps you set up a local Kafka instance using Docker, produce a message using Python, and consume that message to store it in a database or S3.
-
----
 
 ## 📚 Table of Contents
 
