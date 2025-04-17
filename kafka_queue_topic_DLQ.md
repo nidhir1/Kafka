@@ -1,8 +1,8 @@
 # 1. Kafka Queue (aka point-to-point messaging)
-##Concept:
-*Only one consumer out of many in a group processes each message.
+## Concept:
+* Only one consumer out of many in a group processes each message.
 
-*Kafka achieves this with consumer groups: each message is delivered to one consumer in the group.
+* Kafka achieves this with consumer groups: each message is delivered to one consumer in the group.
 
 * Kafka itself is not a traditional message queue, but it can mimic queue behavior.
 
@@ -22,13 +22,13 @@ Use case: multiple teams needing the same data independently.
 
 
 ### Use Cases:
-*Task Distribution System
+* Task Distribution System
 e.g., Multiple worker services pulling jobs from a Kafka topic to process images, payments, or background tasks.
 
-*Parallel Processing for Scalability
+* Parallel Processing for Scalability
 e.g., A stream of customer orders being processed by a pool of stateless microservices, each handling some share.
 
-*Load Balancing
+* Load Balancing
 e.g., Logging services consuming logs in parallel to avoid bottlenecks.
 
 
@@ -41,7 +41,7 @@ e.g., Logging services consuming logs in parallel to avoid bottlenecks.
 
 * Each partition is an ordered, immutable log.
 
-###Example:
+### Example:
 
 * Topic: user-signups
 
